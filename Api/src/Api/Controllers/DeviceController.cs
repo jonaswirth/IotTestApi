@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class DeviceController : Controller
     {
         // GET api/values
         [HttpGet]
@@ -25,8 +25,9 @@ namespace Api.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void ChangeLedColor([FromBody]string color)
         {
+
         }
 
         // PUT api/values/5

@@ -37,7 +37,10 @@ namespace Api
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            services.AddCors();
+
             services.AddMvc();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -50,7 +53,11 @@ namespace Api
 
             app.UseApplicationInsightsExceptionTelemetry();
 
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader());
+
             app.UseMvc();
+
+            
         }
     }
 }
