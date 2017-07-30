@@ -44,10 +44,17 @@ export default class Start extends Vue {
             console.log("Failed");
         };
 
-        var color = clr.r + ";" + clr.g + ";" + clr.b;
-        console.log(color);
+        //var color = clr.r + ";" + clr.g + ";" + clr.b;
+        //console.log(color);
+
         this.axios
-            .post(constants.api + "device", color, constants.header)
+            .post(constants.api + "device", {
+                
+                    red: 1,
+                    green: 1,
+                    blue: 1
+                
+            })
             .then(_onSuccess)
             .catch(_onError); 
     }

@@ -25,7 +25,7 @@ namespace Api.Controllers
 
         // POST api/values
         [HttpPost]
-        public void ChangeLedColor([FromBody]string color)
+        public void ChangeLedColor([FromBody] Color color)
         {
 
         }

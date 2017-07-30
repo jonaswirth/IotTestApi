@@ -2,8 +2,10 @@
     api: "http://localhost:50136/api/",
     header: {
         headers:
-        {'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':'localhost'},
+        {ContentType: 'application/json',
+        AccessControlAllowOrigin:'localhost',
+        Authorization:'sdaddsa',
+        CustomHeaderJutToTest:'sadasdada'},
         method: 'post'
     }
 }
