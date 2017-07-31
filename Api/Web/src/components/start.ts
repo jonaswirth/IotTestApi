@@ -50,9 +50,9 @@ export default class Start extends Vue {
         this.axios
             .post(constants.api + "device", {
                 
-                    red: 1,
-                    green: 1,
-                    blue: 1
+                    red: clr.r,
+                    green: clr.g,
+                    blue: clr.b
                 
             })
             .then(_onSuccess)

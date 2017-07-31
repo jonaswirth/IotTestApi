@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Api.Services;
 
 namespace Api.Controllers
 {
     [Route("api/[controller]")]
     public class DeviceController : Controller
     {
+        private DeviceService deviceService = new DeviceService();
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
@@ -27,7 +30,15 @@ namespace Api.Controllers
         [HttpPost]
         public void ChangeLedColor([FromBody] Color color)
         {
+            deviceService.ChangeColor(1, color);
+        }
 
+        //The device calls this on startup 
+        [HttpGet("register")]
+        public void RegisterDevice(int id)
+        {
+            var remoteIpAddress = HttpContext.Connection.RemoteIpAddress;
+            deviceService.AddDevice(new Device(id, remoteIpAddress.ToString()));
         }
 
         // PUT api/values/5
